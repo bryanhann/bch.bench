@@ -1,20 +1,8 @@
 #!/source/this/sh
 cd ..
-export BEACH_ROOT=$PWD
-export BEACH_BIN=$PWD/.bin
-[ "${BEACH_ACTIVE}" = "" ] && {
-    export BEACH_ACTIVE=1
-    echo "[$PWD]: activating self"
-    echo "[$PWD]: [\$PATH] += [${BEACH_BIN}]"
-    export PATH=${PATH}:${BEACH_BIN}
-}||{
-    echo [$PWD] already active
-}
+export BCH_BENCH_ROOT=$PWD
+export BCH_BENCH_BIN=$PWD/.bin
+[ "${BCH_BENCH_ACTIVE}" = "1" ] || export PATH=${BCH_BENCH_BIN}:${PATH}
+alias .bch=". bch-src"
+echo "[$BCH_BENCH_ROOT]: exported commands [bch] and [.bch]"
 
-#pushd .. > /dev/null
-#[ -d ./workbench ] || git clone git@github.com:bryanhann/workbench workbench
-#pushd workbench/.insitu > /dev/null
-#echo $PWD
-#. ./activate
-#popd >/dev/null
-#popd >/dev/null

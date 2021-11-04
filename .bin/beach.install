@@ -1,3 +1,0 @@
-src=git@github.com:bryanhann/workbench
-dst=${BEACH_ROOT}/.WB
-[ -d ${dst} ] || git clone $src $dst

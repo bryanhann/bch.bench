@@ -1,0 +1,6 @@
+#!/bin/bash
+eval $(bch wb.eval4key yy)
+set | grep yy
+#src=git@github.com:bryanhann/workbench
+#dst=${BEACH_ROOT}/.WB
+[ -d ${yy_dst} ] || git clone $yy_src $yy_dst

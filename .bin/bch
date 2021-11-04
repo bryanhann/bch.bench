@@ -1,0 +1,9 @@
+#!/bin/bash
+[ ! -f ${BCH_BENCH_BIN}/bch.d/$1 ] && {
+    echo "USAGE:"
+    for name in $(/bin/ls ${BCH_BENCH_BIN}/bch.d    ); do echo "      bch $name"; done
+    for name in $(/bin/ls ${BCH_BENCH_BIN}/bch-src.d); do echo "     .bch $name"; done
+    printf "NOTE:\n    In scripts replace [.bch] with [. bch-src].\n"
+} || {
+    ${BCH_BENCH_BIN}/bch.d/$*
+}
