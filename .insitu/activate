@@ -1,0 +1,8 @@
+#!/source/this/sh
+pushd .. > /dev/null
+[ -d ./workbench ] || git clone git@github.com:bryanhann/workbench workbench
+pushd workbench/.insitu > /dev/null
+echo $PWD
+. ./activate
+popd >/dev/null
+popd >/dev/null
