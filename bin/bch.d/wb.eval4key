@@ -1,3 +1,0 @@
-#!/bin/bash
-echo export $1_src=git@github.com:bryanhann/workbench
-echo export $1_dst=${BCH_BENCH_ROOT}/tmp.WB

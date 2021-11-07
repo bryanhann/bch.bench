@@ -1,0 +1,3 @@
+#!this-must-be-sourced
+echo 99999 "[[.oet]] [$0] [$*]"
+echo 99 [[.poet]] [$0] [$*]

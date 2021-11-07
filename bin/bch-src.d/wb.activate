@@ -1,6 +1,0 @@
-#!/source/this/sh
-bch wb.install
-eval $(bch wb.eval4key yy)
-pushd ${yy_dst}/.insitu > /dev/null
-. ./activate
-popd > /dev/null

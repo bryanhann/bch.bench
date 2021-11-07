@@ -1,3 +1,0 @@
-#!/source/this/sh
-[ -f ${BCH_BENCH_BIN}/bch-src.d/$1 ] || bch
-[ -f ${BCH_BENCH_BIN}/bch-src.d/$1 ] && . ${BCH_BENCH_BIN}/bch-src.d/$*
