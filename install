@@ -34,7 +34,7 @@ def install_to_dotname(dotname):
                 script={SCRIPT}
                 [ -f $script ] || echo "{prefix} cannot activate {POET}"
                 [ -f $script ] && eval $( $script )
-                [ -f $script ] && . $POET_ROOT/dotfiles/dot{dotname}
+                [ -f $script ] && . $POET_ROOT/user/dotfiles/dot{dotname}
             {HASH} END poet activation""")
         if 'yes' in sys.argv:
             print(f"installed to {dotname}")
