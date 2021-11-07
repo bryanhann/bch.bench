@@ -3,7 +3,7 @@
 import os
 import sys
 from pathlib import Path
-
+SCRIPT=Path(__file__).absolute()
 def unpath(target):
     target=str(target)
     path=os.environ['PATH']
@@ -22,12 +22,18 @@ class Exporter:
         for k,v in self.store:
             self.fd.write(f"export {k}={v}\n")
             self.fd.flush()
-
+    def comment(self,block):
+        lines=block.split('\n')
+        for line in lines:
+            self.fd.write(f"# {line}\n")
+        self.fd.flush()
 def main():
     exp=Exporter(sys.stdout)
     POET_ROOT=Path(__file__).absolute().parent
     POET_BIN=POET_ROOT/'bin'
-    if '-r' in sys.argv:
+    args = sys.argv[1:] + ['']
+    if args[0] == '-r':
+         args.pop(0)
          exp.POET_ROOT  = ""
          exp.POET_BIN   = ""
          exp.PATH       = f"{unpath(POET_BIN)}"
@@ -36,6 +42,11 @@ def main():
          exp.POET_BIN   = POET_BIN
          exp.PATH       = f"{POET_BIN}:{unpath(POET_BIN)}"
     exp.write()
-
+    exp.comment(f"""
+    If you are reading this, you probably invoked
+            {SCRIPT}
+    rather than properly invoking
+            eval $({SCRIPT})
+    """)
 if __name__=='__main__':
     main()
