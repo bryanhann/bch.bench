@@ -1,2 +1,1 @@
-echo DOT.BASHRC
-. fn.use_monty_prompt
+. $POET_USER/dotfiles/startup dot.bashrc

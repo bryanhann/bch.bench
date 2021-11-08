@@ -1,2 +1,1 @@
-echo DOT.PROFILE
-. fn.use_monty_prompt
+. $POET_USER/dotfiles/startup dot.profile
