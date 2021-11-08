@@ -36,10 +36,14 @@ def main():
          args.pop(0)
          exp.POET_ROOT  = ""
          exp.POET_BIN   = ""
+         exp.POET_USER  = ""
+         exp.POET_POET  = ""
          exp.PATH       = f"{unpath(POET_BIN)}"
     else:
          exp.POET_ROOT  = POET_ROOT
-         exp.POET_BIN   = POET_BIN
+         exp.POET_BIN   = POET_ROOT/'bin'
+         exp.POET_USER  = POET_ROOT/'user'
+         exp.POET_POET  = POET_ROOT/'poet'
          exp.PATH       = f"{POET_BIN}:{unpath(POET_BIN)}"
     exp.write()
     exp.comment(f"""
