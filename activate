@@ -37,7 +37,7 @@ def main():
          exp.POET  = ""
          exp.POET_BIN   = ""
          exp.POET_USER  = ""
-         exp.POET_POET  = ""
+         exp.POET_POEM  = ""
          exp.POET_BUILD  = ""
          exp.POET_VEND = ""
          exp.PATH       = f"{unpath(POET_BIN)}"
@@ -45,7 +45,7 @@ def main():
          exp.POET       = POET
          exp.POET_BIN   = POET/'bin'
          exp.POET_USER  = POET/'user'
-         exp.POET_POET  = POET/'poet'
+         exp.POET_POEM  = POET/'poet'
          exp.POET_VEND  = POET/'.vend'
          exp.PATH       = f"{BIN}:{unpath(BIN)}"
     exp.write()
