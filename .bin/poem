@@ -1,0 +1,17 @@
+#!/bin/bash
+[ "${POET_POEM_ACTIVE}" = "1" ] || {
+    export PATH=${POET_POEM}/.venv/bin:${PATH}
+    export PYTHONPATH=${POET_POEM}
+    export POET_POEM_ACTIVE=1
+}
+
+bin=$POET_BIN/poem.d
+[ -f $bin/$1 ] || {
+    echo USAGE:
+    for path in $(ls $bin/[a-z]*); do 
+        echo "    poem $(basename $path)"
+    done
+    exit
+}
+
+$bin/$*
