@@ -29,22 +29,25 @@ class Exporter:
         self.fd.flush()
 def main():
     exp=Exporter(sys.stdout)
-    POET_ROOT=Path(__file__).absolute().parent
-    POET_BIN=POET_ROOT/'bin'
+    POET=Path(__file__).absolute().parent
+    BIN=POET/'bin'
     args = sys.argv[1:] + ['']
     if args[0] == '-r':
          args.pop(0)
-         exp.POET_ROOT  = ""
+         exp.POET  = ""
          exp.POET_BIN   = ""
          exp.POET_USER  = ""
          exp.POET_POET  = ""
+         exp.POET_BUILD  = ""
+         exp.POET_VEND = ""
          exp.PATH       = f"{unpath(POET_BIN)}"
     else:
-         exp.POET_ROOT  = POET_ROOT
-         exp.POET_BIN   = POET_ROOT/'bin'
-         exp.POET_USER  = POET_ROOT/'user'
-         exp.POET_POET  = POET_ROOT/'poet'
-         exp.PATH       = f"{POET_BIN}:{unpath(POET_BIN)}"
+         exp.POET       = POET
+         exp.POET_BIN   = POET/'bin'
+         exp.POET_USER  = POET/'user'
+         exp.POET_POET  = POET/'poet'
+         exp.POET_VEND  = POET/'.vend'
+         exp.PATH       = f"{BIN}:{unpath(BIN)}"
     exp.write()
     exp.comment(f"""
     If you are reading this, you probably invoked
