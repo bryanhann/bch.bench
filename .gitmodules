@@ -1,0 +1,6 @@
+[submodule "github.com/magicmonty/bash-git-prompt"]
+	path = github.com/magicmonty/bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt
+[submodule "github.com/bats-core/bats-core"]
+	path = github.com/bats-core/bats-core
+	url = https://github.com/bats-core/bats-core
