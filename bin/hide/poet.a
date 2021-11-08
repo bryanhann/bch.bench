@@ -1,5 +1,0 @@
-[ "$1" = "apple" ]
-err=$?
-echo APPLE [$*] $err
-exit $err
-
