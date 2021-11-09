@@ -7,3 +7,6 @@
 [submodule "github.com/bats-core/bats-assert"]
 	path = github.com/bats-core/bats-assert
 	url = https://github.com/bats-core/bats-assert
+[submodule "github.com/bats-core/bats-support"]
+	path = github.com/bats-core/bats-support
+	url = https://github.com/bats-core/bats-support
