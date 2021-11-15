@@ -1,8 +1,0 @@
-#!/source/this/sh
-cd ..
-export BCH_BENCH_ROOT=$PWD
-export BCH_BENCH_BIN=$PWD/.bin
-[ "${BCH_BENCH_ACTIVE}" = "1" ] || export PATH=${BCH_BENCH_BIN}:${PATH}
-alias .bch=". bch-src"
-echo "[$BCH_BENCH_ROOT]: exported commands [bch] and [.bch]"
-

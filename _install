@@ -24,18 +24,21 @@ def make_extra(block):
 def install_to_dotname(dotname):
     dotfile = Path.home()/dotname
     if dotfile.is_file():
+        POET = Path(__file__).absolute().parent
         prefix  = f"poet[{dotname}]:"
-        SCRIPT  = Path(__file__).absolute().parent/'activate'
-        POET    = "./%s" %  SCRIPT.parent.relative_to(Path.home())
+        INSITU = Path(__file__).absolute().parent/'.insitu'
         HASH = '###'
         CLEAN = cleanblock_4_dotpath(dotfile)
         EXTRA = make_extra(f"""
             {HASH} BEGIN poet activation
-                script={SCRIPT}
-                [ -f $script ] || echo "{prefix} cannot activate {POET}"
-                [ -f $script ] && eval $( $script )
-                [ -f $script ] && . $POET_USER/dotfiles/dot{dotname}
-            {HASH} END poet activation""")
+                xx={INSITU}
+                [ -d $xx ] || echo "{prefix} cannot activate {POET}"
+                [ -d $xx ] && pushd $xx > /dev/null
+                [ -d $xx ] && . ./activate.sh {dotname}
+                [ -d $xx ] && popd > /dev/null
+                xx=
+            #{HASH} END poet activation
+            """)
         if 'yes' in sys.argv:
             print(f"installed to {dotname}")
             dotfile.write_text(CLEAN + EXTRA)
