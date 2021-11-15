@@ -1,12 +1,12 @@
 [submodule "github.com/magicmonty/bash-git-prompt"]
-	path = github.com/magicmonty/bash-git-prompt
+	path = .vendor/github.com/magicmonty/bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt
 [submodule "github.com/bats-core/bats-core"]
-	path = github.com/bats-core/bats-core
+	path = .vendor/github.com/bats-core/bats-core
 	url = https://github.com/bats-core/bats-core
 [submodule "github.com/bats-core/bats-assert"]
-	path = github.com/bats-core/bats-assert
+	path = .vendor/github.com/bats-core/bats-assert
 	url = https://github.com/bats-core/bats-assert
 [submodule "github.com/bats-core/bats-support"]
-	path = github.com/bats-core/bats-support
+	path = .vendor/github.com/bats-core/bats-support
 	url = https://github.com/bats-core/bats-support
