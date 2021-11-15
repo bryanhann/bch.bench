@@ -10,3 +10,6 @@
 [submodule "github.com/bats-core/bats-support"]
 	path = .vendor/github.com/bats-core/bats-support
 	url = https://github.com/bats-core/bats-support
+[submodule "_user"]
+	path = user
+	url = git@github.com:bryanhann/poet.user
