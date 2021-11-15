@@ -1,12 +1,4 @@
 #!/bin/bash
-
-bin=$POET_BIN/poet.d
-[ -f $bin/$1 ] || {
-    echo USAGE:
-    for path in $(ls $bin/[a-z]*); do 
-        echo "    poet $(basename $path)"
-    done
-    exit
-}
-
+bin=$0.d
+[ -f $bin/$1 ] || { poet help; exit 88; }
 $bin/$*

@@ -1,0 +1,12 @@
+#!/bin/bash
+bin=$0.d
+[ -f $bin/$1 ] || {
+    echo Exercises to test the testing aparatus.
+    echo USAGE:
+    for path in $(ls $bin/[a-z]*); do 
+        echo "    $(basename $0) $(basename $path)"
+    done
+    exit
+}
+
+$bin/$*
