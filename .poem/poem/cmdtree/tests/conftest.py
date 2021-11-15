@@ -3,7 +3,15 @@ import pytest
 from pathlib import Path
 import poem.cmdtree.class_CMD as _CMD
 import fixtures.blocks as _B
-class Namespace(): pass
+
+FIXTURES = Path(__file__).absolute().parent/'fixtures'
+
+class Namespace():
+    pass
+
+@pytest.fixture
+def ROOT():
+    return FIXTURES/'root'
 
 @pytest.fixture
 def B():
@@ -14,13 +22,6 @@ def B():
     xx.uranus = _B.URANUS
     xx.sol    = _B.SOL
     return xx
-
-@pytest.fixture
-def CMD():
-    return _CMD.CMD
-
-@pytest.fixture
-def ROOT(): return Path(__file__).absolute().parent/'root'
 
 @pytest.fixture
 def Q(ROOT):
@@ -34,6 +35,7 @@ def Q(ROOT):
     xx.io       = ROOT/'sol/planet/jupiter/io.__main__'
     xx.uranus   = ROOT/'sol/planet/uranus.__main__'
     return xx
+
 @pytest.fixture
 def C(Q):
     xx=Namespace()
