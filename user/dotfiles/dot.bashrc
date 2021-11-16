@@ -1,1 +1,1 @@
-. $POET_USER/dotfiles/startup dot.bashrc
+. $POET_USER/startup $*

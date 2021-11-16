@@ -1,1 +1,1 @@
-. $POET_USER/dotfiles/startup dot.profile
+. $POET_USER/startup $*

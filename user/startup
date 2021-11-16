@@ -1,0 +1,4 @@
+#!/bin/sh
+. ${POET_USER}/functions
+
+fn_hello $*
