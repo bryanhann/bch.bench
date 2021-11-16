@@ -34,7 +34,7 @@ def install_to_dotname(dotname):
                 xx={INSITU}
                 [ -d $xx ] || echo "{prefix} cannot activate {POET}"
                 [ -d $xx ] && pushd $xx > /dev/null
-                [ -d $xx ] && . ./activate.sh {dotname}
+                [ -d $xx ] && . ./activate {dotname}
                 [ -d $xx ] && popd > /dev/null
                 xx=
             #{HASH} END poet activation
