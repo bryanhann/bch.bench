@@ -1,7 +1,7 @@
 #!
 setup () {
-    load $POET/github.com/bats-core/bats-support/load.bash
-    load $POET/github.com/bats-core/bats-assert/load.bash
+    load $POET_VENDOR/github.com/bats-core/bats-support/load.bash
+    load $POET_VENDOR/github.com/bats-core/bats-assert/load.bash
     #load 'test_helper/bats-assert/load'
 }
 @test "can run our script" {
