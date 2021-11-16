@@ -1,0 +1,47 @@
+#!/bin/sh
+export_ () { export $1="$2"; }
+#
+#export_ pth github.com/magicmonty/bash-git-#prompt
+#export_ src https://${pth}
+#export_ dst ${BOZO_VENDOR}/${pth}
+#export_ act ${dst}/gitprompt.sh2
+#export_ prefix ".bozo monty"
+
+__main__ () {
+    local pth=github.com/magicmonty/bash-git-prompt
+    local src=https://${pth}
+    local dst=${BOZO_VENDOR}/${pth}
+    local act=${dst}/gitprompt.sh
+    local prefix=".bozo monty"
+
+    case .$1 in
+        .install)   __install__  $* ;;
+        .activate)  __activate__ $* ;;
+        *)          __usage__    $* ;;
+    esac
+    }
+
+__warn__ () {
+    echo "[$prefix]:"
+    echo "    Monty seems to be badly installed."
+    echo "    Try \"${prefix} install -f\" first."
+    }
+
+__install__ () {
+    [ "$2" = "-f" ] && rm -rf ${dst}
+    [ -d $dst ] && echo already installed
+    [ -d $dst ] || echo installing...
+    [ -d $dst ] || git clone $src $dst
+    }
+
+__activate__ () {
+    [ -f ${act} ] && . ${act} || __warn__
+    }
+
+__usage__ () {
+    echo "USAGE:"
+    echo "    .bozo monty activate"
+    echo "    .bozo monty install [-f]"
+    }
+
+__main__ $*

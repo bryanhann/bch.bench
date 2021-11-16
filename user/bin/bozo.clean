@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+from pathlib import Path
+import sys
+import os
+import shutil
+BADLIST=[]
+BAD = ".devnul __pycache__".split()
+def isbad(path):
+    if path.name in BAD:
+        return True
+    if path.suffix==".pyc":
+        return True
+def descendants(path):
+    if not path.exists():
+        return
+    if isbad(path):
+        BADLIST.append(path)
+        #print( path)
+        return
+    yield path
+    for child in path.glob('*'):
+        yield from descendants(child)
+def main():
+    script = Path(sys.argv[0])
+    script2 = Path(__file__)
+    name = script.name
+    assert script == script2
+    args = sys.argv[1:]
+    print(f"[{name}]: {args}")
+    root = Path(os.environ['POET'])
+    for path in descendants(root):
+        pass
+    for path in BADLIST:
+        print(path)
+        if path.is_dir():
+            shutil.rmtree(path)
+if __name__ == '__main__':
+    main()

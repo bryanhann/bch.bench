@@ -1,4 +1,7 @@
 #!/bin/sh
-. ${POET_USER}/functions
 
-fn_hello $*
+alias .gpo="pushd $POET"
+alias .gpoem="pushd $POET_POEM"
+alias .guser="pushd $POET_USER"
+
+

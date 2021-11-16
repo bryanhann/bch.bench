@@ -1,0 +1,3 @@
+echo Activating monty.
+.bozo monty install
+.bozo monty activate
