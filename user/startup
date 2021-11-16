@@ -1,7 +1,7 @@
 #!/bin/sh
-
+alias user=".bozo user"
 alias .gpo="pushd $POET"
 alias .gpoem="pushd $POET_POEM"
 alias .guser="pushd $POET_USER"
-
-
+echo [BOZO]: $*
+echo [BOZO]: enter [user] for a better user experience.

@@ -1,1 +1,2 @@
-. $POET_USER/startup $*
+#!/source/this/sh
+. ${BOZO}/startup $*
