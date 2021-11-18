@@ -6,6 +6,7 @@ authors = ["Bryan Hann <nobody@nowhere>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+psutil = "^5.8.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -16,3 +17,5 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 poem-cmdtree-usage4path = 'poem.cmdtree.console:usage4path'
+hansel-walkall = 'poem.hansel.console:hansel_walkall'
+hansel = 'poem.hansel.console:hansel_usage'
