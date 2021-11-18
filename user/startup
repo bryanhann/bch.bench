@@ -1,7 +1,18 @@
 #!/bin/sh
-alias user=".bozo user"
+
+.bozo bless \
+    ${HOME}/__bch__ \
+    git@github.com:bryanhann/bchp.history.data
+
 alias .gpo="pushd $POET"
 alias .gpoem="pushd $POET_POEM"
 alias .guser="pushd $POET_USER"
+alias zz="zjot new"
+alias bg="zjot new [bg] "
+alias food="zjot new [food]"
+alias ins="zjot new [humalog]"
+alias lins="zjot new [tresiba]"
+
+alias user=".bozo user"
 echo [BOZO]: $*
 echo [BOZO]: enter [user] for a better user experience.
