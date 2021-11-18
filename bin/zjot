@@ -87,10 +87,10 @@ newjot () {
     list
 
     acc="$*"
-    printf ">>>>>>>>>>>>>>>>>>>>>> ${acc} : "
+    printf ">>>>>>>>>>>>>>>>>>>>>> ${acc} | "
     read jot
 
-    [ ! "${jot}" = "" ] && jot=": ${jot}" 
+    [ ! "${jot}" = "" ] && jot="| ${jot}"
     [ ! "${acc}" = "" ] && jot="${acc} ${jot}"
     [   "${jot}" = "" ] && return
 
