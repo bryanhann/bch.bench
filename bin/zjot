@@ -1,10 +1,10 @@
 #!/bin/sh
-META_NAME=BCH_APP_ZJOT_
+META_NAME=ZJOT_ACC
 APP=$(basename $0)
 
 DirPath () {
-    [ ! -z "$BCH_APP_ZJOT_ACC" ] && local _path=${BCH_APP_ZJOT_ACC}
-    [   -z "$BCH_APP_ZJOT_ACC" ] && local _path=${HOME}/${META_NAME}
+    [ ! -z "$ZJOT_ACC" ] && local _path=${ZJOT_ACC}
+    [   -z "$ZJOT_ACC" ] && local _path=${HOME}/${META_NAME}
     >/dev/null 2>/dev/null mkdir -p ${_path}
     echo ${_path}
 }
@@ -73,6 +73,7 @@ report () {
 }
 
 list () {
+    echo "# $(DirPath)"
     dump () { echo "----------------------" $(basename $1); cat $1; }
     DirStat -v || return
     for path in $( DD_list acc    ); do dump $path; done
