@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-import class_CMD as _CC_
-import util as UU
+import poem.cmdtree.class_CMD as _CC_
+import poem.cmdtree.util as UU
 from pathlib import Path
 def _isnode(p): return p.is_file() and p.name == '__main__'
 def _isleaf(p): return p.is_file() and p.suffix == '.__main__'
