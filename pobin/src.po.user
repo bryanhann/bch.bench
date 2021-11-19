@@ -1,1 +1,3 @@
-. blessed.bozo.src user
+#. blessed.bozo.src user
+echo [src.po.user] .bozo user
+.bozo user
