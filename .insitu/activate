@@ -12,9 +12,21 @@ export_ POET_VENDOR ${POET}/.vendor
 export_ PATH        ${POET_BIN}:${PATH}
 export_ PATH        $(./path.py clean)
 
-. src.poet.bless -u $POET poem -b main
-. src.poet.bless -u $POET bozo
-. src.poet.bless -u $POET bch
+# install our own [po] command suite.
+
+export PO_BIN=$(dirname $PWD)/pobin
+cp ${PWD}/lbin/* ${HOME}/.local/bin/
+po () { blessed.po $*; }
+.po () { . blessed.po.src $*; }
+
+
+.po bless -u $POET poem -b main
+.po bless  -u $POET bozo
+.po bless -u $POET bch
+#. src.poet.bless -u $POET poem -#b main
+#. src.poet.bless -u $POET bozo
+#. src.poet.bless -u $POET bch
 
 # activate the dotfile via blessed.bozo.
 . blessed.bozo.src dot $*
+

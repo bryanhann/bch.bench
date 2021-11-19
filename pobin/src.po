@@ -1,0 +1,8 @@
+#!/bin/sh
+main () {
+    local p=${PO_BIN}/src.po
+    [ "$1" == "" ] && { . ${p}.__null__ $* ; return $?; }
+    [ -f ${p}.$1 ] && { . ${p}.$*          ; return $?; }
+    [ -f ${p}.$1 ] || { . ${p}.__bad__ $*  ; return $?; }
+}
+main $*

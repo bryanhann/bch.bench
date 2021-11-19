@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+import os
+from pathlib import Path
+from textwrap import dedent
+BIN=Path(__file__).parent
+def subs():
+    for sub in BIN.glob('po.*'):
+        name = sub.suffix[1:]
+        if name.startswith('_'): continue
+        print( f"    blessed.po {name}" )
+    for sub in BIN.glob('src.po.*'):
+        name = sub.suffix[1:]
+        if name.startswith('_'): continue
+        print( f"    . blessed.po.src {name}" )
+
+def main(): 
+    print("COMMANDS:")
+    subs()
+main()
