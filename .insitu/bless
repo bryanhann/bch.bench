@@ -1,3 +1,0 @@
-. src.poet.bless -u $POET poem -b main
-. src.poet.bless -u $HOME/blessed/ bch
-

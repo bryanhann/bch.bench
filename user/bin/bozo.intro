@@ -1,6 +1,0 @@
-#!/bin/sh
-
-a="[bozo]: dot$*"
-b="[bozo]: type [!bozo user] for user friendliness."
-> /dev/stderr printf "\n$a\n$b\n\n"
-
