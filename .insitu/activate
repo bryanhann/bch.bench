@@ -1,5 +1,7 @@
 #!/source/this/sh
 
+echo
+echo BEGIN POET ACTIVATION
 export_ () { export $1=$2; }
 
 export_ POET        $(dirname ${PWD})
@@ -10,9 +12,9 @@ export_ POET_VENDOR ${POET}/.vendor
 export_ PATH        ${POET_BIN}:${PATH}
 export_ PATH        $(./path.py clean)
 
-. ./bless
+. src.poet.bless -u $POET poem -b main
+. src.poet.bless -u $POET bozo
+. src.poet.bless -u $HOME/blessed/ bch
 
-. ./insitu.sh \
-    ${POET_USER}/.insitu \
-    . ./activate $*
-
+# activate the dotfile via blessed.bozo.
+. blessed.bozo.src dot $*

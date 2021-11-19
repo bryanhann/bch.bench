@@ -25,7 +25,6 @@ __main__ () {
             shift 2
             local src=git@github.com:bryanhann/blessed.${name}
             local dst=${dir}/blessed.${name}
-            echo xxx __main__ $dst $src $*
             __bless__ $dst $src $*
             ;;
         *)
@@ -34,7 +33,5 @@ __main__ () {
     esac
 }
 
-
 __main__ $*
-#bless  $BCH git@github.com:bryanhann/bchp.history.data
 
