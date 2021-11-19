@@ -1,9 +1,5 @@
 #!/bin/sh
 
-.bozo bless \
-    ${HOME}/__bch__ \
-    git@github.com:bryanhann/bchp.history.data
-
 alias .gpo="pushd $POET"
 alias .gpoem="pushd $POET_POEM"
 alias .guser="pushd $POET_USER"
