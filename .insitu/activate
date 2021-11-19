@@ -14,7 +14,7 @@ export_ PATH        $(./path.py clean)
 
 . src.poet.bless -u $POET poem -b main
 . src.poet.bless -u $POET bozo
-. src.poet.bless -u $HOME/blessed/ bch
+. src.poet.bless -u $POET bch
 
 # activate the dotfile via blessed.bozo.
 . blessed.bozo.src dot $*
