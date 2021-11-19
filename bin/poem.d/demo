@@ -1,4 +1,0 @@
-#!/usr/bin/env python3
-print("We can import the module 'poem'.\n")
-import poem
-print(f"The module is:\n\t", poem)
