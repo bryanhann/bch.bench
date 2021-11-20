@@ -1,5 +1,6 @@
 #!/bin/sh
 __blessed__ () {
+    __blessed__ () { echo no second __blessed__ call; }
     [ . = .                ] && local s=$1
     [ . = .                ] && local b=$(basename $1)
     [ . = .                ] && local d=$(poet.dot $2)
@@ -27,6 +28,5 @@ __blessed__ () {
     local _bl_args=$a
     local _bl_line="$_bl_dot $_bl_target $_bl_args"
     [ -f $s.$f ] && { $d $s.$f $c $a; } || { $f $c $a; }
-    #__blessed__ () { echo no second __blessed__ call; }
 }
 
