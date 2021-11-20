@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import sys
+
+USAGE="""
+USAGE:
+    $(poet.dot $0)
+
+RETURNS:
+    "."    if the calling script was sourced
+    ""     otherwise
+
+TYPICAL USE:
+    Suppose script X wants to source or call another
+    script depending on whether X itself was sourced
+    of called. Script X can do this by invoking
+        $(poet.dot $0) path/to/other/script ...
+
+RATIONALE:
+    There is no standard way for a script to know whether
+    was sourced. Typically if it was sourced then $0 is a
+    single word, but this word is system dependant. If it
+    starts with a dash, $(dirname $0) may give errors.
+
+BUGS:
+    The script will be deemed to have been sourced if the
+    number of components in ['/'.split($0)] is less than 2.
+"""
+
+if __name__=='__main__':
+    arg=(sys.argv[1:] + ['-h'])[0]
+    if arg in '-h --help'.split():
+        print(USAGE)
+    elif len(arg.split('/')) < 2:
+        print('.')
+    else:
+        pass
