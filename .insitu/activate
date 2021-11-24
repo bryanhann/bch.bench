@@ -1,22 +1,19 @@
 #!/source/this/sh
-
-echo
-echo BEGIN POET ACTIVATION
 export_ () { export $1=$2; }
-
 export_ POET        $(dirname ${PWD})
 export_ POET_BIN    ${POET}/bin
 export_ POET_USER   ${POET}/user
 export_ POET_POEM   ${POET}/poem
 export_ POET_VENDOR ${POET}/.vendor
 export_ PATH        ${POET_BIN}:${PATH}
+export_ PO_BIN      ${POET}/pobin
 export_ PATH        $(./path.py clean)
+mkdir -p            ${HOME}/.local/bin/
+cp ${POET}/lbin/*   ${HOME}/.local/bin/
 
 # install our own [po] command suite.
 
-export PO_BIN=$(dirname $PWD)/pobin
-cp ${PWD}/lbin/* ${HOME}/.local/bin/
-po () { blessed.po $*; }
+ po () {   blessed.po     $*; }
 .po () { . blessed.po.src $*; }
 
 .po bless -u $POET poem -b main

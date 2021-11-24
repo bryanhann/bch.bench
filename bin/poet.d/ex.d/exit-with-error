@@ -1,4 +1,0 @@
-[ "$1" = "0" ] && echo "input was [$*]" > /dev/stdout
-[ "$1" = "0" ] || echo "input was [$*]" > /dev/stderr
-[ "$1" = ""  ] && exit 66
-exit $1

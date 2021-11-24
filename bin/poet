@@ -1,4 +1,0 @@
-#!/bin/bash
-bin=$0.d
-[ -f $bin/$1 ] || { poet help; exit 88; }
-$bin/$*
