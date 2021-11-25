@@ -12,10 +12,10 @@ mkdir -p            ${HOME}/.local/bin/
 cp ${POET}/lbin/*   ${HOME}/.local/bin/
 
 echo
-. poet.blessed.install -u $POET poem -b main
-. poet.blessed.install -u $POET user
-. poet.blessed.install -u $POET bch
-. poet.blessed.install -u $POET monty
+. poet.blessed.activate -u $POET poem -b main
+. poet.blessed.activate -u $POET user
+. poet.blessed.activate -u $POET bch
+. poet.blessed.activate -u $POET monty
 echo "poet: [. bl.user dot $*]"
 echo
 . bl.user dot $*
