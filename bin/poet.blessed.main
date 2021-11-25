@@ -4,7 +4,7 @@ fn_poet_blessed_perform () {
     fn_poet_blessed_perform () { echo no second call; }
     [ . = .                ] && local s=$1
     [ . = .                ] && local b=$(basename $1)
-    [ . = .                ] && local d=$(poet.dot $2)
+    [ . = .                ] && local d=$(poet.blessed.dot $2)
     [ . = .                ] && local c=$3
     [ . = .                ] && shift 3
     [ . = .                ] && local a="$*"
