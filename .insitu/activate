@@ -11,16 +11,17 @@ export_ PATH        $(./path.py clean)
 mkdir -p            ${HOME}/.local/bin/
 cp ${POET}/lbin/*   ${HOME}/.local/bin/
 
-# install our own [po] command suite.
-
- po () {   blessed.po     $*; }
-.po () { . blessed.po.src $*; }
-
-.po bless -u $POET poem -b main
-.po bless -u $POET bozo
-.po bless -u $POET bch
-.po bless -u $POET monty
-
-# activate the dotfile via blessed.bozo.
-. blessed.bozo.src dot $*
-
+echo
+. poet.bless -u $POET poem -b main
+. poet.bless -u $POET user
+. poet.bless -u $POET bch
+. poet.bless -u $POET monty
+echo "poet: [. bl.user dot $*]"
+echo
+. bl.user dot $*
+echo
+echo poet: Type \'xp\' For a better user experience.
+echo
+xp () {
+    . bl.monty activate 
+}
