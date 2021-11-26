@@ -1,0 +1,14 @@
+#!/bin/bash
+show () { 
+    while [ ! "$1" == "" ]; do
+        echo "[$1]"
+        shift
+    done
+    set | grep ^__BLESSED
+}
+__help__ () { show __help__ $0 $*; return $?; }
+__null__ () { show __null__ $0 $*; return $?; }
+__miss__ () { show __miss__ $0 $*; return $?; }
+__main__ () { show __main__ $0 $*; return $?; }
+. poet.blessed.main $0 $*
+

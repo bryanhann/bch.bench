@@ -1,0 +1,2 @@
+echo ++[foo.amy] [$0] [$*]
+echo --[foo.amy] [$0] [$*]
