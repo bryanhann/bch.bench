@@ -1,0 +1,22 @@
+#!/bin/bash
+setmagic () {
+    # if set, blessed proxies will dump their env to this file.
+    export MAGIC_kjvdWkm=$1
+}
+
+_exp () { export $1="$2" ; }
+_exp    _HERE_  $(dirname $PWD)
+_exp    _TEMP_  /tmp/magic879yev
+_exp    _S0_    ${_HERE_}/fixtures/suite.foo
+_exp    _S1_    ${_TEMP_}/suite.foo
+_exp    _DUMP_  ${_TEMP_}/dump
+_exp    _BIN_   ${_TEMP_}/bin
+_exp    PATH    ${_BIN_}:${PATH}
+
+rm -rf ${_TEMP_}
+mkdir  ${_TEMP_}
+mkdir  ${_BIN_}
+
+cp -rf ${_S0_} ${_S1_}
+${_S1_}/install yes -d ${_BIN_}
+setmagic ${_DUMP_}

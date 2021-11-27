@@ -6,7 +6,6 @@ __pycache__
 .build
 .hide
 .vendor
-blessed.*
 hide
 .hide
 *.tmp

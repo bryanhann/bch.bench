@@ -1,0 +1,4 @@
+#!/bin/bash
+[ "$1" = "yes" ] && shift || { echo try $0 yes; exit; }
+
+poet.blessed.ez-bless $(dirname $0)/blessed_bin/foo $*

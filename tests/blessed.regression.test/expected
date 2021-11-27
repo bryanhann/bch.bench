@@ -1,0 +1,98 @@
+$ . foo
+__BLESSED_ARGS__=
+__BLESSED_CMD__=
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=
+
+$   foo
+__BLESSED_ARGS__=
+__BLESSED_CMD__=
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=
+
+$ . foo -h a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=-h
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=
+
+$   foo -h a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=-h
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=
+
+$ . foo --help a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=--help
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=
+
+$   foo --help a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=--help
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=
+
+$ . foo a b c
+__BLESSED_ARGS__='b c'
+__BLESSED_CMD__=a
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=
+
+$   foo a b c
+__BLESSED_ARGS__='b c'
+__BLESSED_CMD__=a
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=
+
+$ . foo amy a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=amy
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=/tmp/magic879yev/suite.foo/blessed_bin/foo.amy
+
+$   foo amy a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=amy
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=/tmp/magic879yev/suite.foo/blessed_bin/foo.amy
+
+$ . foo bob a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=bob
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=/tmp/magic879yev/suite.foo/blessed_bin/foo.bob
+
+$   foo bob a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=bob
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=/tmp/magic879yev/suite.foo/blessed_bin/foo.bob
+
+$ . foo cal a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=cal
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=/tmp/magic879yev/suite.foo/blessed_bin/foo.cal/__main__
+
+$   foo cal a b c
+__BLESSED_ARGS__='a b c'
+__BLESSED_CMD__=cal
+__BLESSED_DOT__=
+__BLESSED_MAIN__=/tmp/magic879yev/suite.foo/blessed_bin/foo
+__BLESSED_NEXT__=/tmp/magic879yev/suite.foo/blessed_bin/foo.cal/__main__
+

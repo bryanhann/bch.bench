@@ -1,0 +1,14 @@
+. foo
+  foo
+. foo -h a b c
+  foo -h a b c
+. foo --help a b c
+  foo --help a b c
+. foo a b c
+  foo a b c
+. foo amy a b c
+  foo amy a b c
+. foo bob a b c
+  foo bob a b c
+. foo cal a b c
+  foo cal a b c

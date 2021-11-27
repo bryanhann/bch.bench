@@ -1,0 +1,39 @@
+#!/bin/bash
+
+quietly_activate () {
+    > /dev/null pushd ${1}/.insitu || return
+    > /dev/null >> /dev/null . ./activate
+    > /dev/null popd
+}
+
+
+main () {
+    export LINES=${_HERE_}/lines
+    export NEW=${_HERE_}/received.tmp
+    export OLD=${_HERE_}/expected
+    export RESULT=${_HERE_}/foo.out
+    rm  -rf ${NEW}
+    ii=0
+    while IFS= read -r line
+    do
+        rm -rf ${_DUMP_}
+        > /dev/null >> /dev/null ${line}
+        echo "$ ${line}" >> ${NEW}
+        cat ${_DUMP_}    >> ${NEW}
+        echo ""          >> ${NEW}
+
+        printf "${ii} "
+        ii=$(( ${ii} + 1 ))
+    done < ${LINES}
+    echo
+    cmp $OLD $NEW && return
+    diff ${OLD} ${NEW} -y --left-column -W 60
+    echo
+    echo Regression test failed. Diff output above.
+}
+
+quietly_activate $(dirname $0)
+#> /dev/null >> /dev/null pushd $(dirname $0)/.insitu
+#> /dev/null >> /dev/null . ./activate
+#> /dev/null >> /dev/null popd
+main
