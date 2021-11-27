@@ -1,27 +1,36 @@
 #!/source/this/sh
+
 export_ () { export $1=$2; }
+
 export_ POET        $(dirname ${PWD})
 export_ POET_BIN    ${POET}/bin
 export_ POET_USER   ${POET}/user
 export_ POET_POEM   ${POET}/poem
 export_ POET_VENDOR ${POET}/.vendor
+export_ POET_BUILD  ${POET}/.build
 export_ PATH        ${POET_BIN}:${PATH}
-export_ PO_BIN      ${POET}/po
-export_ PATH        $(./path.py clean)
+
+x () { 
+    [ -d $POET_BUILD/$1 ] && return
+    echo; echo press ENTER to install $1 ; read
+    git clone https://$* $POET_BUILD/$1 ; echo
+}
+
+x github.com/magicmonty/bash-git-prompt
+x github.com/bats-core/bats-core
+x github.com/bats-core/bats-assert
+x github.com/bats-core/bats-support
+. poet.blessed.activate -u $POET poem -b main
+. poet.blessed.activate -u $POET bch
+. poet.blessed.activate -u $POET user
+    echo "poet: [. bl.user dot $*]"
+    . bl.user dot $*
+
 mkdir -p            ${HOME}/.local/bin/
 cp ${POET}/lbin/*   ${HOME}/.local/bin/
 
-echo
-. poet.blessed.activate -u $POET poem -b main
-. poet.blessed.activate -u $POET user
-. poet.blessed.activate -u $POET bch
-. poet.blessed.activate -u $POET monty
-echo "poet: [. bl.user dot $*]"
-echo
-. bl.user dot $*
-echo
+export_ PATH        $(./path.py clean)
+
+xp () { . ${POET_BUILD}/github.com/magicmonty/bash-git-prompt/gitprompt.sh; }
 echo poet: Type \'xp\' For a better user experience.
-echo
-xp () {
-    . bl.monty activate 
-}
+

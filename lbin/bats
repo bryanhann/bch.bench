@@ -1,1 +1,1 @@
-${POET_VENDOR}/github.com/bats-core/bats-core/bin/bats $*
+${POET_BUILD}/github.com/bats-core/bats-core/bin/bats $*
