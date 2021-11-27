@@ -1,0 +1,6 @@
+#!/bin/bash
+> /dev/null pushd $(dirname $0)
+for path in $(ls | grep test$); do
+    $path/runtest
+done
+> /dev/null popd

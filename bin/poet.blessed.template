@@ -1,0 +1,60 @@
+#!/source/this/sh
+
+# We parse the input and accordingly we set environment values
+# for the client's reference. Each value is stored in a pair of
+# environment variables names: one long and one short. The long
+# names form the client API. The short names are for our own
+# convenience as we processng these values before invoking the
+# client.
+
+# The path to the client was already assigned to M. We assign
+# it again here to the long name.
+
+    export __BLESSED_MAIN__=$M
+
+# We set D (for DOT) to a '.' if we were sourced, and to '' 
+# if we were called. We do this for two reasons. First, the 
+# because because the client will want to know whether it was
+# sourced (by proxy) or called (by proxy). Second, we want to
+# invoke the client in the same way we were invoked, which we
+# do easily by the invokation [$D $M]. Determining whether we
+# were called our sourced is accomplished my passing our [$0]
+# value to a helper script.
+
+    export D=$(poet.blessed.dot $0)
+    export __BLESSED_DOT__=$D
+
+# We set C (for CMD) to the first positional parameter.
+
+    export C=${1}
+    export __BLESSED_CMD__=$C
+    shift
+
+# We set A (for ARGS) to the remaining positional parameters.
+
+    export A="${*}"
+    export __BLESSED_ARGS__=$A
+
+# If CMD represents a script that should be called next, we
+# set N (for NEXT) to this script's path. Otherwise we set it
+# to ''.
+
+    if   [ -f $M.$C          ];then export N=$M.$C
+    elif [ -f $M.$C/__main__ ];then export N=$M.$C/__main__
+    else                            export N=
+    fi
+    export __BLESSED_NEXT__=$N
+
+# (If the following magic variable name is set, then we are
+# operating under test conditions and its value is a path
+# to an output file to which we should dump our created
+# environment.)
+
+    if [ ! ${MAGIC_kjvdWkm} = "" ]; then
+        set | grep ^__BLESSED >> ${MAGIC_kjvdWkm}
+    fi
+
+# Finally we invoke the client.
+
+    $D $M $C $A
+

@@ -1,0 +1,9 @@
+#!/source/this/sh
+fn_poet_blessed_bless_lbin () {
+    [ "$2" = "" ] && local proxy=$1
+    [ "$2" = "" ] || local proxy=$2.$1
+    local proxy
+    echo "poet_blessed_fn_bless_simple() [$0] [$*]"
+    echo main [$PWD/bin/$1]
+    echo proxy [~/.local/bin/$proxy]
+}

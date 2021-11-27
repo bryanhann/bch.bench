@@ -2,25 +2,21 @@
 
 main_magic_3o47985 () {
     main_magic_3o47985() { true; }
-    local d=$(poet.blessed.dot $1) ; shift
-    local c=$1                     ; shift
-    local p=${__BLESSED_PATH__}
-    local x=$p.$c
-    local y=$p.$c/__main__
+    local d="${__BLESSED_DOT__}"
+    local c="${__BLESSED_CMD__}"
+    local p="${__BLESSED_PATH__}"
+    local a="${__BLESSED_ARGS__}"
+    [ . == .            ] && local t=
+    [ -f $p.$c          ] && local t=$p.$c
+    [ -f $p.$c/__main__ ] && local t=$p.$c/__main__
 
-    [ -f $p.__null__ ] && N="$d $p.__null__" || N=__null__
-    [ -f $p.__main__ ] && M="$d $p.__main__" || M=__main__
-    [ -f $p.__help__ ] && H="$d $p.__help__" || H=__help__
-    [ -f $p.__bad__  ] && B="$d $p.__bad__"  || B=__bad__
+    export __BLESSED_NEXT__=$t
 
-    if   [ $c. = .     ];then $N $c $*   ;return $?;
-    elif [ $c = -h     ];then $H $c $*   ;return $?;
-    elif [ $c = --help ];then $H $c $*   ;return $?;
-    elif [ -f $x       ];then $M $d $x $*;return $?;
-    elif [ -f $y       ];then $M $d $y $*;return $?;
-    elif [ . = .       ];then $B $c $*   ;return $?;
-    else echo UNREACHABLE
-    fi
+    [ "$c" = ""       ] && { __null__ ; return $?; }
+    [ "$c" = "-h"     ] && { __help__ ; return $?; }
+    [ "$c" = "--help" ] && { __help__ ; return $?; }
+    [ ! "$t" = ""     ] && { __main__ ; return $?; }
+    [ . = .           ] && { __miss__ ; return $?; }
 }
 
 case .$1 in
@@ -28,6 +24,10 @@ case .$1 in
         echo MUST BE SOURCED FROM BLESSED CLIENT
         ;;
     *)
+        echo 88888888 [$*]
+        export __BLESSED_DOT__=$(poet.blessed.dot $1) ; shift
+        export __BLESSED_CMD__=$1 ; shift
+        export __BLESSED_ARGS__="$*"
         main_magic_3o47985 $*
         ;;
 esac

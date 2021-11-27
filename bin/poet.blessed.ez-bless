@@ -1,0 +1,25 @@
+#!/bin/bash
+usage () {
+cat <<HEREDOC
+
+    usage
+
+HEREDOC
+exit
+}
+
+[ "$1" = ""       ] && usage
+[ "$1" = "-h"     ] && usage
+[ "$1" = "--help" ] && usage
+target=$1 ; shift
+prefix=
+dstdir=${HOME}/.local/bin
+while true; do
+    if   [ "${1}" = -d ] ; then dstdir=${2} ; shift 2
+    elif [ "${1}" = -p ] ; then prefix=${2}. ; shift 2
+    else break
+    fi
+done
+echo poet.blessed.bless ${target} ${dstdir}/${prefix}$(basename ${target})
+poet.blessed.bless ${target} ${dstdir}/${prefix}$(basename ${target})
+

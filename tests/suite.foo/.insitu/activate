@@ -1,4 +1,0 @@
-#!/source/this/sh
-cd ..
-poet.blessed.bless ${PWD}/bin/foo ${HOME}/.local/bin/proxy-foo
-
