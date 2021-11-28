@@ -6,9 +6,13 @@ USAGE="""
 USAGE:
     $(poet.dot $0)
 
-RETURNS:
+STDOUT:
     "."    if the calling script was sourced
     ""     otherwise
+
+ERRLEVEL:
+    0    if the calling script was sourced
+    1    otherwise
 
 TYPICAL USE:
     Suppose script X wants to source or call another
@@ -31,7 +35,10 @@ if __name__=='__main__':
     arg=(sys.argv[1:] + ['-h'])[0]
     if arg in '-h --help'.split():
         print(USAGE)
+        exit(0)
     elif len(arg.split('/')) < 2:
         print('.')
+        exit(0)
     else:
-        pass
+        exit(1)
+
