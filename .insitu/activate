@@ -1,19 +1,23 @@
 #!/source/this/sh
 export_ () { export $1=$2; }
-export_ POET         $(dirname ${PWD})
-export_ POET_BIN     ${POET}/bin
-export_ POET_LBIN    ~/.local/bin
-export_ POET_LOG     ${HOME}/.poet.log
-export_ POET_BLESSED ${HOME}/.blessed
-export_ PATH         ${POET_BIN}:${PATH}
-export_ PATH         ${POET_LBIN}:${PATH}
-mkdir -p             ${POET_LBIN}
-
-poet.blessed.install path
-poet.blessed.install bats
-poet.blessed.install poem -b main
-poet.blessed.install user -b newstyle
-
-export_ PATH  $(blessed.path clean)
-
-. blessed.user $*
+poet_install () {
+    ${POET}/.insitu/install
+    export POET_POSTINSTALL=yes
+}
+poet () {
+    poet_install
+    . blessed.poet $POET_ARGS
+    . blessed.monty
+}
+export_ POET_ARGS   "$*"
+export_ POET        $(dirname ${PWD})
+export_ POET_BIN    ${POET}/bin
+export_ POET_LBIN   ~/.local/bin
+export_ POET_LOG    ${HOME}/.poet.log
+export_ PATH        ${PATH}:${POET_BIN}
+export_ PATH        ${PATH}:${POET_LBIN}
+export_ PATH        $(poet.path  clean)
+export_ POET_BLESSED ${HOME}/.__blessed__
+echo "Type 'poet_install' to install blessed clients."
+echo "Type 'poet' to activate the poet"
+mkdir -p ~/.local/bin

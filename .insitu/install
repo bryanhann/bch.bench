@@ -1,0 +1,9 @@
+#!/bin/bash
+[ "$POET_POSTINSTALL" = "yes" ] && exit
+poet.install monty
+poet.install path
+poet.install bats
+poet.install zjot
+poet.install bch
+poet.install poem -b main
+poet.install poet -b newstyle
