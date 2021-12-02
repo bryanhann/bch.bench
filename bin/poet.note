@@ -1,0 +1,2 @@
+echo $* >> /dev/stdout
+echo $* >> $POET_LOG

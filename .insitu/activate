@@ -2,26 +2,13 @@
 export_ () { export $1=$2; }
 export_ POET        $(dirname ${PWD})
 export_ POET_BIN    ${POET}/bin
-export_ POET_USER   ${POET}/user
-export_ POET_POEM   ${POET}/poem
-export_ POET_VENDOR ${POET}/.vendor
+export_ POET_LOG     ${HOME}/.poet.log
+export_ POET_BLESSED ${HOME}/.blessed
 export_ PATH        ${POET_BIN}:${PATH}
-export_ PO_BIN      ${POET}/po
 export_ PATH        $(./path.py clean)
 mkdir -p            ${HOME}/.local/bin/
 cp ${POET}/lbin/*   ${HOME}/.local/bin/
 
-echo
-. poet.blessed.activate -u $POET poem -b main
-. poet.blessed.activate -u $POET user
-. poet.blessed.activate -u $POET bch
-. poet.blessed.activate -u $POET monty
-echo "poet: [. bl.user dot $*]"
-echo
-. bl.user dot $*
-echo
-echo poet: Type \'xp\' For a better user experience.
-echo
-xp () {
-    . bl.monty activate 
-}
+poet.blessed.install poem -b main
+poet.blessed.install user -b newstyle
+. blessed.user $*
