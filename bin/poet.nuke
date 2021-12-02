@@ -1,2 +1,2 @@
-poet.blessed.nuke
-poet.lbin.nuke
+rm -rf ${POET_BLESSED}
+rm -rf ~/.local/bin/blessed.*
