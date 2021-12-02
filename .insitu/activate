@@ -1,9 +1,6 @@
 #!/source/this/sh
 export_ () { export $1=$2; }
-poet_install () {
-    ${POET}/.insitu/install
-    export POET_POSTINSTALL=yes
-}
+poet_install () { ${POET}/.insitu/install ; }
 poet () {
     poet_install
     . blessed.poet $POET_ARGS
