@@ -1,0 +1,3 @@
+#!/path/to/sh
+poet.install $1
+. blessed.$1 activate

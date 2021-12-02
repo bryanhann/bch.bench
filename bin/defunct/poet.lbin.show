@@ -1,0 +1,2 @@
+ls ~/.local/bin | sort #grep ^poet.
+#ls ~/.local/bin | grep ^blessed.
