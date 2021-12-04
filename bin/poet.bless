@@ -1,0 +1,22 @@
+#!/bin/bash
+C=
+I=
+A=
+
+v=$(poet.flag stat poet.bless.verbose)
+[ "$v" = "[short]" ] && echo "[POET.BLESS] $*"
+[ "$v" = "[long]"  ] && echo "[POET.BLESS] $*"
+
+while true; do
+    name=$1 ; shift
+    [ $name. = -c. ] && C="-c" && continue
+    [ $name. = -i. ] && I="-i" && continue
+    [ $name. = -a. ] && A="-a" && continue
+    break
+done
+
+#echo "blessed.poet.install.py [$I] [$C] -- [$name] [$*]"
+
+${POET_ROOT}/bin.private/poet.install.py $I $C -- $name $*
+
+[ "$A" = "-a" ] && . blessed.$name activate

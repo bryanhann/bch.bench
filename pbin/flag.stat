@@ -1,0 +1,5 @@
+#!/bin/bash
+flag=${POET_FLAG}/$1
+[ -f $flag ] || exit 1
+echo "[$(cat $flag)]"
+exit 0

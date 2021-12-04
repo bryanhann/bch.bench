@@ -1,0 +1,1 @@
+poet.bless.verbose  -- if set, be verbose.

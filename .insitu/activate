@@ -1,28 +1,20 @@
 #!/source/this/sh
-mkdir -p ~/.local/bin
 
+export POET_ROOT=$(dirname ${PWD})
+export POET_BASE=${HOME}/_BASE_
+export POET_INFO=${HOME}/_BASE_/_INFO_
+export POET_FLAG=${POET_ROOT}/.flag
+export POET_PBIN=${POET_ROOT}/pbin
+export POET_LOG=${POET_ROOT}/.log
 
-export_ () { export $1=$2; }
-export_ POET_ARGS   "$*"
-export_ POET        $(dirname ${PWD})
-export_ POET_BIN    ${POET}/bin
-export_ POET_LBIN   ~/.local/bin
-export_ POET_LOG    ${HOME}/.poet.log
-export_ PATH        ${PATH}:${POET_BIN}
-export_ PATH        ${PATH}:${POET_LBIN}
-export_ PATH        $(poet.path  clean)
-export_ POET_BLESSED ${HOME}/.__blessed__
-
-poet_install () { ${POET}/.insitu/install ; }
-monty () { . poet.activate monty; }
-largo () { . poet.activate poet; }
-
-# Activation of [poet] in necessary every time. 
-# It has vital aliases that the current end user
-# needs at all times.
-
-largo
-
-echo "Type 'poet_install' to install blessed clients."
-echo "Type 'monty' to activate the monty prompt"
-echo "Type 'largo' to activate the largo poet."
+poet.line enter POET
+    dot () { . $POET_PBIN/dot.$*; }
+    mkdir -p         ~/.local/bin
+    dot path.prepend ~/.local/bin
+    dot path.prepend ${POET_ROOT}/bin
+    dot path.clean
+    . poet.bless bozo -b bozo
+    . blessed.bozo $*
+    . poet.bless bats
+    . poet.bless poem -b main
+poet.line exit POET

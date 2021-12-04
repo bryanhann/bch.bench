@@ -1,0 +1,3 @@
+#!/bin/bash
+flag=${POET_FLAG}/$1
+[ -f $flag ] && rm  $flag

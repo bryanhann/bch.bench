@@ -2,6 +2,7 @@
 import os
 import sys
 import argparse
+from pathlib import Path
 parser=argparse.ArgumentParser()
 arg=(sys.argv+[''])[1]
 parser.add_argument( 'cmd', nargs='*' )
@@ -9,9 +10,11 @@ ARGS=parser.parse_args()
 PATH=os.environ['PATH']
 PARTS=PATH.split(':')
 
-USAGE="""\
+THIS=Path(sys.argv[0])
+PROG=THIS.name
+USAGE=f"""\
 USAGE:
-    borg-path SUBCOMMAND
+    {PROG} SUBCOMMAND
 
 SUBCOMMANDS:
     list    - list components of PATH

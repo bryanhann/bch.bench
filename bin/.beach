@@ -1,7 +1,0 @@
-#!/source/this/sh
-src=git@github.com:bryanhann/workbench
-dst=${BEACH_ROOT}/.WB
-[ -d ${dst} ] || git clone $src $dst
-pushd ${dst}/.insitu > /dev/null
-. ./activate
-popd > /dev/null

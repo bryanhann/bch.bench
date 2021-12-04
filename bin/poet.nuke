@@ -1,2 +1,4 @@
-rm -rf ${POET_BLESSED}
+#!/bin/bash
+rm -rf ${POET_BASE}
+rm -rf ${POET_INFO}
 rm -rf ~/.local/bin/blessed.*

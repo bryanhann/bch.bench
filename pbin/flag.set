@@ -1,0 +1,6 @@
+#!/bin/bash
+mkdir -p ${POET_FLAG}
+flag=${POET_FLAG}/$1
+shift
+touch $flag
+echo $1 > $flag
