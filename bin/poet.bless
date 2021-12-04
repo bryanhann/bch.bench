@@ -17,6 +17,6 @@ done
 
 #echo "blessed.poet.install.py [$I] [$C] -- [$name] [$*]"
 
-${POET_ROOT}/bin.private/poet.install.py $I $C -- $name $*
+${POET_PBIN}/poet.install.py $I $C -- $name $*
 
 [ "$A" = "-a" ] && . blessed.$name activate
