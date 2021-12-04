@@ -8,17 +8,21 @@ export POET_PBIN=${POET_ROOT}/pbin
 export POET_LOG=${POET_ROOT}/.log
 dot () { . $POET_PBIN/dot.$*; }
 run () { echo "$ [$*]" ; $* ; }
+mon () { . blessed.monty ; }
+mkdir -p         ~/.local/bin
+
 echo
 poet.line enter POET
-    mkdir -p         ~/.local/bin
     dot path.prepend ~/.local/bin
     dot path.prepend ${POET_ROOT}/bin
     dot path.clean
     . poet.bless bozo -b bozo
-    #echo "$ [. blessed.bozo $*]
     run . blessed.bozo $*
-    #         . blessed.bozo $*
     . poet.bless bats
     . poet.bless poem -b main
+    . poet.bless monty
 poet.line exit POET
+
+echo
+echo "Type 'mon' to activate the monty prompt."
 echo
