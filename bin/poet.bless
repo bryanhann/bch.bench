@@ -4,8 +4,8 @@ I=
 A=
 
 v=$(poet.flag stat poet.bless.verbose)
-[ "$v" = "[short]" ] && echo "[POET.BLESS] $*"
-[ "$v" = "[long]"  ] && echo "[POET.BLESS] $*"
+[ "$v" = "[short]" ] && echo "$ [poet.bless $*]"
+[ "$v" = "[long]" ]  && echo "$ [poet.bless $*]"
 
 while true; do
     name=$1 ; shift
@@ -14,8 +14,6 @@ while true; do
     [ $name. = -a. ] && A="-a" && continue
     break
 done
-
-#echo "blessed.poet.install.py [$I] [$C] -- [$name] [$*]"
 
 ${POET_PBIN}/poet.install.py $I $C -- $name $*
 
