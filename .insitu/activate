@@ -3,7 +3,7 @@
 export BCP_LBIN=~/.local/bin/bcp
 export POET_ARGS="$*"
 export POET_ROOT=$(dirname ${PWD})
-export POET_BASE=${HOME}/_BASE_
+export POET_BASE=${HOME}/BCP
 export POET_INFO=${HOME}/_BASE_/_INFO_
 export POET_CFG=${HOME}/.config/poet/cfg
 export POET_FLAG=${POET_ROOT}/.flag
