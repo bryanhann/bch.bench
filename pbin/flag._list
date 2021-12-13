@@ -1,0 +1,9 @@
+#!/bin/bash
+poet_flags () {
+    for path in $(ls ${POET_FLAG}/*); do
+        #echo $path
+        #echo $path
+        [ -d $path ] && echo $path
+    done
+}
+poet_flags

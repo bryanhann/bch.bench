@@ -1,0 +1,3 @@
+#!/bin/bash
+path=${HOME}/.ssh/id_rsa
+ssh-add -l | grep ${path} > /dev/null || echo "# run 'ssh-add'"

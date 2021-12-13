@@ -1,0 +1,4 @@
+#!/source/this/sh
+mon () { . blessed.monty ; }
+echo "# Type 'mon' to activate the monty prompt."
+echo

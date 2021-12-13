@@ -1,2 +1,54 @@
+#!/bin/bash
+export CRITICAL=50
+export ERROR=40
+export WARNING=30
+export INFO=20
+export TRACE=15
+export DEBUG=10
+export NOTSET=0
+
+STDERR_THRESHOLD=$TRACE
+
+LOG=${POET_LOG}
+ERR=stderr
+
+_log () {
+    true;
+    #echo LOG: [$LEVEL] [ $* ]
+}
+_ge_ (){
+    [ $(( $1 >= $2 )) = 1 ]
+}
+_stderr () {
+    local THRESHOLD=$TRACE
+    _ge_ $LEVEL $STDERR_THRESHOLD && {
+        echo "# $*" >> /dev/stderr
+        }||{
+        echo "! $*" >> /dev/stderr
+    }
+ }
+
+
+case $1 in
+    critical|c) LEVEL=$CRITICAL ;;
+    error|e)    LEVEL=$ERROR    ;;
+    warning|w)  LEVEL=$WARNING  ;;
+    info|i)     LEVEL=$INFO     ;;
+    debug|d)    LEVEL=$DEBUG    ;;
+    notset|n)   LEVEL=$NOTSET   ;;
+    trace)      LEVEL=$TRACE    ;;
+    *)          LEVEL=$1        ;;
+esac
+shift
+_log $*
+_stderr $*
+
+exit
 echo $* >> /dev/stdout
 echo $* >> $POET_LOG
+
+handle(){
+    printf "HANDLE: Level=[$1]; " ; printf "msg=[$*]\n"
+}
+level=$1
+shift

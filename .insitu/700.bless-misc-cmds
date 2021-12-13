@@ -1,0 +1,6 @@
+#!/source/this/sh
+. poet.bless bats
+. poet.bless poem -b main
+. poet.bless monty
+. poet.bless beach
+. poet.bless ez

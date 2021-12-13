@@ -1,0 +1,7 @@
+#!/source/this/sh
+
+. $POET_PBIN/poet.dot.path.prepend ~/.local/bin
+. $POET_PBIN/poet.dot path.prepend ${BCP_LBIN}
+. $POET_PBIN/poet.dot path.prepend ${POET_ROOT}/bin
+. $POET_PBIN/poet.dot path.clean
+

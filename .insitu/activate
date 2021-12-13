@@ -1,28 +1,21 @@
 #!/source/this/sh
 
+export BCP_LBIN=~/.local/bin/bcp
+export POET_ARGS="$*"
 export POET_ROOT=$(dirname ${PWD})
 export POET_BASE=${HOME}/_BASE_
 export POET_INFO=${HOME}/_BASE_/_INFO_
+export POET_CFG=${HOME}/.config/poet/cfg
 export POET_FLAG=${POET_ROOT}/.flag
 export POET_PBIN=${POET_ROOT}/pbin
+export POET_PDOT=${POET_ROOT}/pdot
+export POET_BIN=${POET_ROOT}/bin
 export POET_LOG=${POET_ROOT}/.log
-dot () { . $POET_PBIN/dot.$*; }
-run () { echo "$ [$*]" ; $* ; }
-mon () { . blessed.monty ; }
 mkdir -p         ~/.local/bin
+mkdir -p         ${POET_CFG}
 
-echo
-poet.line enter POET
-    dot path.prepend ~/.local/bin
-    dot path.prepend ${POET_ROOT}/bin
-    dot path.clean
-    . poet.bless bozo -b bozo
-    run . blessed.bozo $*
-    . poet.bless bats
-    . poet.bless poem -b main
-    . poet.bless monty
-poet.line exit POET
+for path in $(ls ${POET_ROOT}/.insitu/[0-9]* | sort );  do
+    . $path
+done
 
-echo
-echo "Type 'mon' to activate the monty prompt."
-echo
+

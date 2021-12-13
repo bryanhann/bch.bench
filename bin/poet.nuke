@@ -1,4 +1,4 @@
 #!/bin/bash
 rm -rf ${POET_BASE}
-rm -rf ${POET_INFO}
+rm -rf ${BCP_LBIN}
 rm -rf ~/.local/bin/blessed.*

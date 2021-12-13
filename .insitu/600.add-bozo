@@ -1,0 +1,3 @@
+#!/source/this/sh
+. poet.bless bozo -b bozo
+. blessed.bozo ${POET_ARGS}
