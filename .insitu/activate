@@ -3,8 +3,8 @@
 export BCP_LBIN=~/.local/bin/bcp
 export POET_ARGS="$*"
 export POET_ROOT=$(dirname ${PWD})
-export POET_BASE=${HOME}/_BASE_
-export POET_INFO=${HOME}/_BASE_/_INFO_
+export POET_BASE=${HOME}/BCP
+export POET_INFO=${HOME}/${POET_BASE}/_INFO_
 export POET_CFG=${HOME}/.config/poet/cfg
 export POET_FLAG=${POET_ROOT}/.flag
 export POET_PBIN=${POET_ROOT}/pbin
@@ -13,6 +13,7 @@ export POET_BIN=${POET_ROOT}/bin
 export POET_LOG=${POET_ROOT}/.log
 mkdir -p         ~/.local/bin
 mkdir -p         ${POET_CFG}
+mkdir -p         ${POET_INFO}
 
 for path in $(ls ${POET_ROOT}/.insitu/[0-9]* | sort );  do
     . $path

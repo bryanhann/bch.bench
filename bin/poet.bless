@@ -15,6 +15,10 @@ while true; do
     break
 done
 
+# XXX Workaround for bug in [poet.flag].
+# Always install.
+I=-i
+
 ${POET_PBIN}/poet.install.py $I $C -- $name $*
 
 [ "$A" = "-a" ] && . blessed.$name activate
